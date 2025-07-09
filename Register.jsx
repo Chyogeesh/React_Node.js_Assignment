@@ -17,7 +17,7 @@ function Register() {
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/dashboard');
     } catch (error) {
-      alert(error.response.data.error);
+      alert(error.response?.data?.error || 'Registration failed');
     }
   };
 
@@ -25,13 +25,14 @@ function Register() {
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4">Register</h2>
-        <div onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full p-2 border rounded"
+            required
           />
           <input
             type="date"
@@ -39,6 +40,7 @@ function Register() {
             value={dob}
             onChange={(e) => setDob(e.target.value)}
             className="w-full p-2 border rounded"
+            required
           />
           <input
             type="email"
@@ -46,6 +48,7 @@ function Register() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border rounded"
+            required
           />
           <input
             type="password"
@@ -53,15 +56,15 @@ function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full p-2 border rounded"
+            required
           />
           <button
             type="submit"
-            onClick={handleSubmit}
             className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
           >
             Register
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
