@@ -1,0 +1,16 @@
+npm install
+cd client
+npm install
+npx tailwindcss init
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: { extend: {} },
+  plugins: [],
+};
+mongod
+npm run dev
+git init
+git add .
+git commit -m "Fixed script error and completed auth system"
+git remote add origin <your-repo-url>
+git push -u origin main
